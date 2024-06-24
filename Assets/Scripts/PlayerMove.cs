@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     // 방향, 속력 = 속도 (Vector)
 
     public float moveSpeed = 0.1f;
-    public Vector3 direction;
+    Vector3 direction;
 
     // 처음 생성되었을 때 한 번만 실행되는 함수
     void Start()
@@ -29,7 +29,13 @@ public class PlayerMove : MonoBehaviour
         // print(transform.position);
 
         // 사용자의 입력 받기
-        float h = Input.GetAxis("Horizontal");
-        print(h);
+        // float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(h, z, 0);
+        // 벡터의 길이를 무조건 1로 바꾼다. (정규화)
+        direction.Normalize();
+        transform.position += direction * moveSpeed * Time.deltaTime;
+        print(Time.deltaTime);
     }
 }
