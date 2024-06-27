@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
+  player: {fileID: 0}
+  bullet: {fileID: 2541465500104955188}
+  lifeSpan: 5
 --- !u!54 &2780828335983226180
 Rigidbody:
   m_ObjectHideFlags: 0

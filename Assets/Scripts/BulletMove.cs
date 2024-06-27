@@ -11,6 +11,8 @@ public class BulletMove : MonoBehaviour
 
     public float bulletSpeed = 10;
     public GameObject player;
+    public float lifeSpan = 5.0f;
+    float currentTime = 0;
 
 
     void Start()
@@ -31,7 +33,15 @@ public class BulletMove : MonoBehaviour
 
         transform.position += localDir * bulletSpeed * Time.deltaTime;
         // transform.position += new Vector3(0, 1, 0) * bulletSpeed * Time.deltaTime;
+        
 
+        currentTime += Time.deltaTime;
+        // 만약 게임 오브젝트가 5초 이상 남아 있다면
+        if(currentTime > lifeSpan)
+        {
+            // 게임 오브젝트를 제거한다.
+            Destroy(gameObject);
+        }
     }
 
     // 물리적 충돌이 발생했을 때 실행되는 이벤트 함수
