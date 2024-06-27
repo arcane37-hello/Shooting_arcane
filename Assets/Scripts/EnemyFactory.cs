@@ -15,7 +15,13 @@ public class EnemyFactory : MonoBehaviour
 
     void Start()
     {
+        // Invoke 함수를 이용한 타이머 기능
+        // 1회용 타이머
+        // Invoke("InvokeTest", 2.5f);
 
+        // 반복 타이머
+        // InvokeRepeating("InvokeTest", 3.0f, 1f);
+        // Invoke 함수는 매개변수가 없는 함수만 사용 가능하다.
     }
 
     void Update()
@@ -27,7 +33,7 @@ public class EnemyFactory : MonoBehaviour
             // Enemy를 생성한다.
             GameObject enemy = Instantiate(enemyPrefab);
             enemy.transform.position = transform.position;
-            print("시작");
+            // print("시작");
 
             // 경과 시간을 다시 0으로 초기화한다.
             currentTime = 0;
@@ -44,6 +50,7 @@ public class EnemyFactory : MonoBehaviour
         //    StartTimer();
         // }
         #endregion
+        
     }
 
     void StartTimer()
@@ -65,5 +72,10 @@ public class EnemyFactory : MonoBehaviour
             timeCount--;
             currentTime = 0;
         }
+    }
+
+    void InvokeTest()
+    {
+        print("인보크 기능 실시");
     }
 }

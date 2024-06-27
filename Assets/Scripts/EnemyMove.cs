@@ -26,8 +26,6 @@ public class EnemyMove : MonoBehaviour
         // 3. 게임 오브젝트에 설정된 태그 이름으로 게임 오브젝트를 찾는다.
         player = GameObject.FindGameObjectWithTag("MyPlayer");
 
-
-
         // 랜덤한 숫자를 하나 뽑는다.
         int myNumber = Random.Range(0, 100);
 
@@ -40,10 +38,19 @@ public class EnemyMove : MonoBehaviour
         // 그렇지 않다면, 방향을 플레이어 쪽으로 설정한다.
         else
         {
-            // 플레이어를 향한 방향
-            dir = player.transform.position - transform.position;
-            dir.Normalize();
+            // 만일, 플레이어가 있다면...
+            if (player != null)
+            {
+                // 플레이어를 향한 방향
+                dir = player.transform.position - transform.position;
+                dir.Normalize();
+            }
+            else
+            {
+                dir = Vector3.down;
+            }
         }
+
     }
 
     void Update()
@@ -53,5 +60,19 @@ public class EnemyMove : MonoBehaviour
 
         // p = p0 + vt
         transform.position += dir * enemySpeed * Time.deltaTime;
+
+        // transform.Translate(dir * enemySpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // 충돌한 대상이 플레이어라면...
+        if (other.gameObject.name == "Player")
+        {
+            // 플레이어를 제거하고
+            Destroy(other.gameObject);
+            // 나도 제거한다.
+            Destroy(gameObject);
+        }
     }
 }
