@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3611054166232145584, guid: 61bf549afd8e19248912b5085812f29b, type: 3}
-  delayTime: 0.5
+  delayTime: 0.9
 --- !u!4 &203091599
 Transform:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3611054166232145584, guid: 61bf549afd8e19248912b5085812f29b, type: 3}
-  delayTime: 0.7
+  delayTime: 1.2
 --- !u!4 &203439396
 Transform:
   m_ObjectHideFlags: 0
@@ -472,6 +472,11 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: ac3180a17f83fc2419a93bbd1969ecb4, type: 3}
   - {fileID: 8300000, guid: bfc4202db54a13e43a7802c7cb37e06e, type: 3}
+  bullets: []
+  bulletArray: []
+  bulletCount: 10
+  useObjectPool: 0
+  useArray: 1
 --- !u!82 &255299767
 AudioSource:
   m_ObjectHideFlags: 0
@@ -692,7 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3611054166232145584, guid: 61bf549afd8e19248912b5085812f29b, type: 3}
-  delayTime: 1.2
+  delayTime: 1.5
 --- !u!4 &1095289554
 Transform:
   m_ObjectHideFlags: 0
@@ -1607,7 +1612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3611054166232145584, guid: 61bf549afd8e19248912b5085812f29b, type: 3}
-  delayTime: 0.95
+  delayTime: 1.1
 --- !u!4 &2113307685
 Transform:
   m_ObjectHideFlags: 0
