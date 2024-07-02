@@ -37,6 +37,9 @@ public class PlayerFire : MonoBehaviour
 
                 // 생성된 총알을 비활성화한다.
                 go.SetActive(false);
+
+                // 생성된 총알을 플레이어의 자식 오브젝트로 등록한다.
+                go.transform.parent = transform;
             }
         }
 
@@ -52,6 +55,9 @@ public class PlayerFire : MonoBehaviour
                 bulletArray[i] = go;
                 go.SetActive(false);
                 go.GetComponent<BulletMove>().player = gameObject;
+
+                // 생성된 총알을 플레이어의 자식 오브젝트로 등록한다.
+                go.transform.parent = transform;
             }
         }
 
@@ -144,6 +150,9 @@ public class PlayerFire : MonoBehaviour
         bullets[0].transform.rotation = firePosition.transform.rotation;
         bullets[0].GetComponent<BulletMove>().player = gameObject;
 
+        // 활성화된 총알을 자식 오브젝트에서 해제한다.
+        bullets[0].transform.parent = null;
+
         // 0번 인덱스의 총알 오브젝트를 탄창 리스트에서 제거한다.
         bullets.RemoveAt(0);
     }
@@ -166,6 +175,9 @@ public class PlayerFire : MonoBehaviour
                     // 활성화된 총알의 위치 및 회전 값을 총구와 일치시킨다.
                     bulletArray[i].transform.position = firePosition.transform.position;
                     bulletArray[i].transform.rotation = firePosition.transform.rotation;
+
+                    // 활성화된 총알을 자식 오브젝트에서 해제한다.
+                    bulletArray[i].transform.parent = null;
 
                     // 배열에서 해당 총알을 제거한다.
                     bulletArray[i] = null;
